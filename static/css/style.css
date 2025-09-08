@@ -1,39 +1,196 @@
-:root{
---light-blue:#bfe9ff;
---dark-blue:#0b3d91;
---dark:#0b1620;
---dark-red:#8b0000;
---light-red:#ff6b6b;
---glass: rgba(255,255,255,0.06);
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77, #e63946, #ff6b6b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-*{box-sizing:border-box;font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
-body{margin:0;background: linear-gradient(180deg, var(--light-blue), #e6f7ff);color:#fff;min-height:100vh}
-.topbar{display:flex;justify-content:space-between;padding:16px 32px;background:linear-gradient(90deg,var(--dark-blue),var(--dark));align-items:center;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
-.brand{font-size:20px;font-weight:700;letter-spacing:1px}
-.container{padding:40px;max-width:1100px;margin:0 auto}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:16px;padding:24px;box-shadow:0 8px 40px rgba(11,29,68,0.5);backdrop-filter: blur(6px);color:#fff}
-.center-card{max-width:480px;margin:30px auto}
-.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--light-blue),var(--dark-blue));border:none;color:#051026;font-weight:700;text-decoration:none;cursor:pointer}
-.btn.small{padding:6px 10px;font-size:13px;border-radius:8px}
-.btn.danger{background:linear-gradient(90deg,var(--light-red),var(--dark-red));color:#fff}
-.file-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:20px}
-.file-card{padding:12px;border-radius:12px;background:var(--glass);}
-.file-name{font-weight:700}
-.file-meta{font-size:12px;opacity:0.8}
-.upload-form{display:flex;gap:8px;align-items:center}
-.flash-wrap{position:fixed;right:20px;top:20px;z-index:90}
-.flash{padding:10px 14px;border-radius:8px;margin-bottom:8px;color:#051026}
-.flash.success{background:linear-gradient(90deg,var(--light-blue),var(--dark-blue))}
-.flash.danger{background:linear-gradient(90deg,var(--light-red),var(--dark-red))}
-.footer{padding:12px 0;text-align:center;opacity:0.8}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+h1, h2, h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
 
-/* Animations */
-.file-card{transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s}
-.file-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+/* Container (Login/Register/Share) */
+.login-container, .share-container {
+  background: rgba(0,0,0,0.7);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 420px;
+  margin: auto;
+  margin-top: 60px;
+  box-shadow: 0 0 25px rgba(0, 195, 255, 0.7);
+  animation: fadeIn 1.2s ease;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* responsive */
-@media (max-width:600px){.container{padding:18px}.topbar{padding:12px}}
+.title {
+  font-size: 28px;
+  margin-bottom: 5px;
+  color: #00d4ff;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #f8f9fa;
+}
+
+/* Forms */
+.login-form, .upload-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.captcha-container {
+  margin-bottom: 15px;
+}
+
+.btn-login, .btn-register, .btn-upload, .btn-download, .btn-action, .btn-logout {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #00d4ff, #0096c7);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn-login:hover, .btn-register:hover, .btn-upload:hover, 
+.btn-download:hover, .btn-action:hover, .btn-logout:hover {
+  background: linear-gradient(45deg, #ff4d6d, #d00000);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* Dashboard */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  padding: 15px 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00d4ff;
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+}
+
+.upload-section, .file-list {
+  background: rgba(0,0,0,0.6);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 15px rgba(0,195,255,0.5);
+}
+
+.files-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.files-table th, .files-table td {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.no-files {
+  text-align: center;
+  color: #bbb;
+  margin-top: 20px;
+}
+
+/* Share Download Page */
+.file-card {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.file-card.error {
+  border: 1px solid #ff4d6d;
+  color: #ff6b6b;
+}
+
+/* Footer */
+.dashboard-footer, .site-footer, .footer-text {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #ccc;
+  margin-top: auto;
+}
+
+/* Flash Messages */
+.flash-messages {
+  margin: 10px 0;
+}
+
+.flash {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.flash.success { background: rgba(0,255,128,0.2); color: #00ff99; }
+.flash.error { background: rgba(255,0,0,0.2); color: #ff4d6d; }
+.flash.info { background: rgba(0,128,255,0.2); color: #00d4ff; }
