@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card center-card">
+<h3>File: {{ file.filename }}</h3>
+<p>Size: {{ (file.size // 1024) }} KB</p>
+<a class="btn" href="{{ url_for('share_get', token=file.token) }}">Download</a>
+</div>
+{% endblock %}
