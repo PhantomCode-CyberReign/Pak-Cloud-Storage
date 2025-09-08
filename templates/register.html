@@ -1,15 +1,71 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="card center-card">
-<h2>Create Account</h2>
-<form method="post">
-<label>Username</label>
-<input name="username" required />
-<label>Email</label>
-<input name="email" type="email" required />
-<label>Password</label>
-<input name="password" type="password" required />
-<label>Confirm Password</label>
-<input name="confirm" type="password" required />
-<label>Captcha: <strong>{{ captcha_question }}</strong></label>
-<input name="captcha" require
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pak Cloud Storage | Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <h1 class="title">Pak Cloud Storage</h1>
+        <h2 class="subtitle">Create your account</h2>
+
+        <form action="{{ url_for('register') }}" method="POST" class="login-form">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                <div class="flash-messages">
+                  {% for category, message in messages %}
+                    <p class="flash {{ category }}">{{ message }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <!-- Username -->
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Choose a username" required>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Re-enter password" required>
+            </div>
+
+            <!-- Captcha -->
+            <div class="captcha-container">
+                <label for="captcha">Captcha: {{ captcha_question }}</label>
+                <input type="text" name="captcha" id="captcha" placeholder="Answer here" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-register">Register</button>
+
+            <!-- Extra Links -->
+            <p class="extra-text">
+                Already have an account? 
+                <a href="{{ url_for('login') }}">Login here</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
