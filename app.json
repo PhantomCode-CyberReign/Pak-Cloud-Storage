@@ -1,0 +1,23 @@
+{
+  "name": "Pak Cloud Storage",
+  "description": "Pak Cloud Storage ek shining aur clean UI based Cloud Storage Web App hai jisme file upload, download aur share ki ja sakti hai.",
+  "repository": "https://github.com/YourUsername/pak-cloud-storage",
+  "logo": "https://via.placeholder.com/200x200.png?text=Pak+Cloud+Storage",
+  "keywords": ["flask", "cloud", "storage", "pakistan", "files"],
+  "env": {
+    "SECRET_KEY": {
+      "description": "Flask Secret Key",
+      "generator": "secret"
+    }
+  },
+  "scripts": {
+    "postdeploy": "python3 -m flask db upgrade || true"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "stack": "heroku-20"
+}
