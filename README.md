@@ -30,7 +30,7 @@ Is project ka design stylish fonts aur high animations ke saath banaya gaya hai 
 
 ## ☁️ Deploy on Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=git@github.com:PhantomCode-CyberReign/Pak-Cloud-Storage.git)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/PhantomCode-CyberReign/Pak-Cloud-Storage.git)
 
 ---
 
