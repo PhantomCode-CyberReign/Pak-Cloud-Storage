@@ -1,8 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="card center-card">
-<h3>File: {{ file.filename }}</h3>
-<p>Size: {{ (file.size // 1024) }} KB</p>
-<a class="btn" href="{{ url_for('share_get', token=file.token) }}">Download</a>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pak Cloud Storage | File Download</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="share-body">
+
+  <div class="share-container">
+    <h1 class="title">Pak Cloud Storage</h1>
+    <h2 class="subtitle">File Download</h2>
+
+    {% if file %}
+      <div class="file-card">
+        <p><strong>File Name:</strong> {{ file.filename }}</p>
+        <p><strong>Size:</strong> {{ file.size }} KB</p>
+        <p><strong>Uploaded:</strong> {{ file.uploaded_at }}</p>
+
+        <a href="{{ url_for('download_file', file_id=file.id) }}" class="btn-download">Download File</a>
+      </div>
+    {% else %}
+      <div class="file-card error">
+        <p>⚠️ This file does not exist or has been removed.</p>
+      </div>
+    {% endif %}
+
+    <p class="footer-text">Powered by Pak Company, Inc.</p>
+  </div>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
