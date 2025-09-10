@@ -34,6 +34,12 @@ Is project ka design stylish fonts aur high animations ke saath banaya gaya hai 
 
 ---
 
+## ☁️ Deploy on Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com//PhantomCode-CyberReign/Pak-Cloud-Storage)
+
+---
+
 ## 📜 License
 This project is licensed under **Pak Company, Inc. © 2025**  
 
