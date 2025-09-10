@@ -1,7 +1,7 @@
 {
   "name": "Pak Cloud Storage",
   "description": "Pak Cloud Storage ek shining aur clean UI based Cloud Storage Web App hai jisme file upload, download aur share ki ja sakti hai.",
-  "repository": "https://github.com/YourUsername/pak-cloud-storage",
+  "repository": "https://github.com/PhantomCode-CyberReign/pak-cloud-storage",
   "logo": "https://via.placeholder.com/200x200.png?text=Pak+Cloud+Storage",
   "keywords": ["flask", "cloud", "storage", "pakistan", "files"],
   "env": {
@@ -19,5 +19,5 @@
       "size": "free"
     }
   },
-  "stack": "heroku-20"
+  "stack": "heroku-24"
 }
